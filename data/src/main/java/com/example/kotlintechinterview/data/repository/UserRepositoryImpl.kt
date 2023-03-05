@@ -7,7 +7,7 @@ import com.example.kotlintechinterview.domain.repository.UserRepository
 import com.example.kotlintechinterview.domain.useCase.models.SaveUserNameParam
 import com.example.kotlintechinterview.domain.useCase.models.UserName
 
-class UserRepositoryImpl (private val userStorage : UserStorage, private val networkApi : NetworkApi): UserRepository {
+class UserRepositoryImpl (private val userStorage : UserStorage): UserRepository {
 
     override fun saveName (saveParam : SaveUserNameParam) : Boolean{
         return userStorage.save(mapToStorage(saveParam))
