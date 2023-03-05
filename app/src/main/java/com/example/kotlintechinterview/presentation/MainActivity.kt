@@ -8,19 +8,17 @@ import com.example.kotlintechinterview.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textview.MaterialTextView
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var vm : MainViewModel
+    private val vm by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         Log.e("AAA", "Activity created")
-
-        vm = ViewModelProvider(this, MainViewModelFactory(this))
-            .get(MainViewModel::class.java)
 
         val dataTextView = findViewById<MaterialTextView>(R.id.dataTextView)
         val dataEditView = findViewById<TextInputEditText>(R.id.dataEditView)
