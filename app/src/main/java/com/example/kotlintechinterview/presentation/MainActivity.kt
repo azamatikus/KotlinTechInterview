@@ -3,7 +3,7 @@ package com.example.kotlintechinterview.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlintechinterview.R
-import com.example.kotlintechinterview.data.UserRepositoryImpl
+import com.example.kotlintechinterview.data.repository.UserRepositoryImpl
 import com.example.kotlintechinterview.domain.useCase.GetUserNameUseCase
 import com.example.kotlintechinterview.domain.useCase.SaveUserNameUseCase
 import com.example.kotlintechinterview.domain.useCase.models.SaveUserNameParam
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userRepository by lazy (LazyThreadSafetyMode.NONE) {UserRepositoryImpl(context = applicationContext)}
+        val userRepository by lazy (LazyThreadSafetyMode.NONE) { UserRepositoryImpl(context = applicationContext) }
         val getUserNameUseCase by lazy (LazyThreadSafetyMode.NONE) {GetUserNameUseCase(userRepository)}
         val saveUserNameUseCase by lazy (LazyThreadSafetyMode.NONE) {SaveUserNameUseCase(userRepository)}
 
