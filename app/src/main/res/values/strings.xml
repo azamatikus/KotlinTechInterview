@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kotlin Tech Interview</string>
+    <string name="empty_text">Empty text</string>
+    <string name="get_user_data_btn">Get User Data</string>
+    <string name="enter_your_text_hint">Enter your text</string>
+    <string name="save_user_data_btn">Save User Data</string>
+</resources>
