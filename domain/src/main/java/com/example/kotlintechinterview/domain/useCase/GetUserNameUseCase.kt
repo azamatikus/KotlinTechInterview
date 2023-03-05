@@ -5,7 +5,7 @@ import com.example.kotlintechinterview.domain.useCase.models.UserName
 
 class GetUserNameUseCase (val userRepository : UserRepository){
 
-    fun execute() : UserName{
+    fun execute() : UserName {
         return userRepository.getName()
     }
 }

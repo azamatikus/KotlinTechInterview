@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlintechinterview.R
 import com.example.kotlintechinterview.data.repository.UserRepositoryImpl
+import com.example.kotlintechinterview.data.storage.sharedprefs.SharedPrefUserStorage
 import com.example.kotlintechinterview.domain.useCase.GetUserNameUseCase
 import com.example.kotlintechinterview.domain.useCase.SaveUserNameUseCase
 import com.example.kotlintechinterview.domain.useCase.models.SaveUserNameParam
@@ -17,9 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userRepository by lazy (LazyThreadSafetyMode.NONE) { UserRepositoryImpl(context = applicationContext) }
-        val getUserNameUseCase by lazy (LazyThreadSafetyMode.NONE) {GetUserNameUseCase(userRepository)}
-        val saveUserNameUseCase by lazy (LazyThreadSafetyMode.NONE) {SaveUserNameUseCase(userRepository)}
+        val userRepository by lazy (LazyThreadSafetyMode.NONE) { UserRepositoryImpl(userStorage = SharedPrefUserStorage(context = applicationContext)) }
+        val getUserNameUseCase by lazy (LazyThreadSafetyMode.NONE) { GetUserNameUseCase(userRepository) }
+        val saveUserNameUseCase by lazy (LazyThreadSafetyMode.NONE) { SaveUserNameUseCase(userRepository) }
 
         val dataTextView = findViewById<MaterialTextView>(R.id.dataTextView)
         val dataEditView = findViewById<TextInputEditText>(R.id.dataEditView)
