@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.e("AAA", "Activity created")
-
         val dataTextView = findViewById<MaterialTextView>(R.id.dataTextView)
         val dataEditView = findViewById<TextInputEditText>(R.id.dataEditView)
         val saveButton = findViewById<MaterialButton>(R.id.saveButton)
