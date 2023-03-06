@@ -18,12 +18,7 @@ class MainViewModel (
     private var resultLiveMutable = MutableLiveData<String>()
     val resultLive : LiveData<String> = resultLiveMutable
 
-        init{
-        Log.e("AAA", "VM created")
-    }
-
     override fun onCleared() {
-        Log.e("AAA", "VM cleared")
         super.onCleared()
     }
 
